@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+    <script>
+    window.$ = window.jQuery = require('./lib/jquery/jquery.min.js');
+    </script>
+    <script src="lib/util.js"></script>
+</head>
+<body>
+    <div class="titlebar">
+        <div class="window-controls">
+            <div class="window-controls-wrapper">
+                <div class="menu-button">
+                    <a id="app-close">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="menu-button">
+                    <a id="app-max">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="menu-button">
+                    <a id="app-min">
+                        <i class="fa fa-circle" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="input-bar">
+            <div class="input-bar-content">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="search" class="url">
+            </div>
+        </div>
+    </div>
+    <div class="loading">
+
+    </div>
+
+    <!-- http://electron.atom.io/docs/api/web-view-tag/ -->
+    <webview id="webview" src="https://www.github.com/" nodeintegration plugins></webview>
+    <img id="webview-preview" style="display: none">
+
+    <div class="tabs-button">
+        <i class="fa fa-th-large" aria-hidden="true"></i>
+    </div>
+
+    <div class="content">
+        <div class="add-tab-wrapper">
+            <div class="add-tab-content">
+                <img src="img/add-tab-button.png" style="width:100%">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- <h1>Hello World!</h1> -->
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    <!-- We are using node <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>. -->
+</body>
+
+<script>
+// You can also require other files to run in this process
+require('./renderer.js')
+</script>
+</html>

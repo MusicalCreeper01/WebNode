@@ -1,0 +1,283 @@
+@font-face {
+    font-family: 'TitilliumWeb'; /*a name to be used later*/
+    src: url('fonts/TitilliumWeb-ExtraLight.ttf'); /*URL to font*/
+}
+
+html{
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+body{
+    height: 100%;
+    overflow: hidden;
+    color: #8e8e8e;
+
+    margin: 0;
+
+    background-color: #2d2d2d;
+}
+
+fa {
+    color: #80b601;
+}
+
+.titlebar{
+    position: relative;
+
+    background-color: #141414;
+    color: #8e8e8e;
+    height: 64px;
+    /*Make this the drag point for the window
+    https://github.com/electron/electron/blob/master/docs/api/frameless-window.md#draggable-region*/
+    -webkit-app-region: drag;
+    -webkit-user-select: none;
+}
+
+.titlebar .window-controls {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding-left: 17px;
+    width: 121px;
+    /*overflow: auto;*/
+    overflow:hidden;
+}
+
+.titlebar .window-controls .window-controls-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow:hidden;
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button {
+    height: 100%;
+    display: inline-block;
+    width: 32px;
+    line-height: 64px;
+    text-align: center;
+    font-size: 16px;//28px;
+    color: #80b601;
+    overflow:hidden;
+
+    cursor: pointer;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button:hover {
+    transform: scale(1.3);
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button a, .titlebar .window-controls .window-controls-wrapper .menu-button a i {
+    -webkit-app-region: no-drag;
+    width: 16px;
+    height: 16px;
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button a#app-close{
+
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button a#app-max{
+    color: #404040;
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button:nth-child(3) {
+    line-height: 54px;
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button a#app-min {
+    color: #80b601;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.titlebar .window-controls .window-controls-wrapper .menu-button a#app-min i{
+    line-height: 17.5px;
+    background: #232323;
+    border-radius: 50%;
+    font-size: 5px;
+}
+
+.titlebar .input-bar {
+    position: absolute;
+
+    left: 121px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    padding: 12px;
+
+    overflow:hidden;
+}
+
+.titlebar .input-bar .input-bar-content{
+    /*width: 100%;*/
+    height: 40px;
+    line-height: 48px;
+
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    padding-left: 9px;
+
+    color: #8e8e8e;
+    font-size: 28px;
+    vertical-align: middle;
+    overflow: hidden;
+
+    -webkit-app-region: no-drag;
+}
+
+.titlebar .input-bar .input-bar-content>* {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.titlebar .input-bar .input-bar-content i {
+    width: 18px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.titlebar .input-bar .input-bar-content i:hover {
+    color: #80b601;
+}
+
+.titlebar .input-bar .input-bar-content .url{
+    width: calc(100% - 26px);
+    height: 100%;
+
+    vertical-align: top;
+
+    font-family: TitilliumWeb;
+    color: #8e8e8e;
+    font-size: 26px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+/* Deal with webkit's clear search button */
+.titlebar .input-bar .input-bar-content .url::-webkit-search-cancel-button{
+    position:relative;
+    right:9px;
+
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius:10px;
+    background: red;
+
+    transition: all .2s ease-in-out;
+}
+
+.loading{
+    width: 100%;
+    height: 4px;
+    background-color: #80b601;
+}
+
+.content {
+    position: absolute;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content .add-tab-wrapper {
+    position: relative;
+    width: 98px;
+    height: 98px;
+    padding: 8px;
+    border-radius: 50%;
+
+    background-color: #626262;
+
+    margin: 0 auto;
+
+    cursor: pointer;
+
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    /* ...and now for the proper property */
+    transition:.5s;
+}
+
+.content .add-tab-wrapper:hover {
+    transform: scale(1.2);
+}
+
+.content .add-tab-wrapper .add-tab-content {
+    width: 100%;
+    height: 100%;
+
+    background-color: #191919;
+    border-radius: 50%;
+
+    line-height: 98px;
+    font-size: 48px;
+
+    text-align: center;
+    color: #81b800;
+}
+
+webview{
+    position: absolute;
+    top: 68px;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: 10;
+}
+
+.tabs-button{
+    position: absolute;
+    vertical-align: bottom;
+    bottom:0;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: #141414;
+    color: #80b601;
+
+    border-radius: 15px 15px 0px 0px;
+    -moz-border-radius: 15px 15px 0px 0px;
+    -webkit-border-radius: 15px 15px 0px 0px;
+
+    z-index: 20;
+    text-align: center;
+    vertical-align: middle;;
+}
+
+.tabs-button i {
+    font-size: 32px;
+    line-height: 50px;
+}
+
+#webview-preview {
+    z-index: 20;
+}
